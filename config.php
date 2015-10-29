@@ -33,7 +33,7 @@ define('DB_HOST', getenv('RDS_HOSTNAME'));
 return array(
   'components' => array(
     'db' => array(
-      'connectionString' => 'mysql:host='.RDS_HOSTNAME.';port=3306;dbname='.DB_NAME.';',
+      'connectionString' => 'mysql:host='.DB_HOST.';port=3306;dbname='.DB_NAME.';',
       'emulatePrepare' => true,
       'username' => DB_USER,
       'password' => DB_PASSWORD,
