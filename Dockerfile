@@ -14,8 +14,7 @@ RUN apt-get install -y \
     php5-gd \
     php5-imap \
     libapache2-mod-php5 \
-    php5-mysql \
-    --no-install-recommends
+    php5-mysql
 
 # Install supervisord
 RUN mkdir -p /var/log/supervisor
