@@ -1,8 +1,8 @@
 # Neill Watson, PhD Research Questionnaires
 
-Instructions for running Neill Watson's customized LimeSurvey installtion inside a Docker Container on AWS Elastic Beanstalk.
+Instructions for running Neill Watson's customized LimeSurvey installation inside a Docker Container on AWS Elastic Beanstalk.
 
-## Run the App
+## Install the App on Amazon Elastic Beanstalk
 Follow the steps below to deploy the demo application to an Elastic Beanstalk Docker environment. Accept the default settings unless indicated otherwise in the steps below:
 
 1. Download the ZIP file from the [Releases section](https://github.com/awslabs/eb-demo-php-simple-app/releases) of this repository.
@@ -14,7 +14,7 @@ Follow the steps below to deploy the demo application to an Elastic Beanstalk Do
 7. Allocate 5GB of storage and provide a username and password for your database
 8. Review and launch the application
 
-## Permission 
+## Usage Permissions
 
 Permission to use the questionnaires requires only that you cite the two references below in your publications, presentations, and thesis/dissertation.
 
@@ -26,3 +26,7 @@ Watson, N. (2004). Self-Concept Questionnaire – Personal Constructs, Self-Conc
 Watson, N., Bryan, B. C., & Thrash, T. M. (2010). Self-discrepancy: Comparisons of the
               psychometric properties of three instruments. Psychological Assessment, 22, 878-892.
               doi: 10.1037/a0020644
+
+## Change History
+
+[Change history](http://www.watsonresearchwiki.org/change-history) and [configuration instructions](http://www.watsonresearchwiki.org/configuration) can be found at [http://www.watsonresearchwiki.org](http://www.watsonresearchwiki.org)

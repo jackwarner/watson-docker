@@ -26,12 +26,9 @@ RUN chmod -R 755 /var/www/html/upload;chown -R www-data:www-data /var/www/html/u
 RUN chmod -R 755 /var/www/html/application/config;chown -R www-data:www-data /var/www/html/application/config
 RUN chmod 0444 /var/www/html/admin/*
 RUN rm -rf /var/www/html/.git
-#RUN  cd /var/www && /usr/bin/composer install
 
 # Configure apache
 RUN a2enmod rewrite
-#RUN chown -R www-data:www-data /var/www/html
-#ADD apache.conf /etc/apache2/sites-available/default
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
@@ -41,4 +38,9 @@ EXPOSE 80
 RUN apt-get remove -y \
     git
 
+# Need to set environment variables before starting apache
+# See http://askubuntu.com/questions/452042/why-is-my-apache-not-working-after-upgrading-to-ubuntu-14-04
+CMD ["source", "/etc/apache2/envvars"]
+
+# And start the web server
 CMD ["/usr/sbin/apache2", "-D",  "FOREGROUND"]
