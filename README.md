@@ -2,10 +2,10 @@
 
 Instructions for running Neill Watson's customized LimeSurvey installation inside a Docker Container on AWS Elastic Beanstalk.
 
-## Install the App on Amazon Elastic Beanstalk
+## Install the App on Amazon Elastic Beanstalk with RDS
 Follow the steps below to deploy the demo application to an Elastic Beanstalk Docker environment. Accept the default settings unless indicated otherwise in the steps below:
 
-1. Download the ZIP file from the [Releases section](https://github.com/awslabs/eb-demo-php-simple-app/releases) of this repository.
+1. Download the ZIP file from the [Releases section](https://github.com/jackwarner/watson-docker/releases) of this repository.
 2. Login to the [Elastic Beanstalk Management Console](https://console.aws.amazon.com/elasticbeanstalk)
 3. Click `Create New Application` and give your app a name and description
 4. Choose 'Docker' in the 'Predefined configuration' dropdown and click `Next`

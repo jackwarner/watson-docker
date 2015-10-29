@@ -7,13 +7,20 @@ ENV APP_VERSION Watson-RC17
 # Install dependencies
 RUN apt-get update -y
 RUN apt-get install -y \
+    supervisor \
     git \
     apache2 \
     php5 \
     php5-gd \
     php5-imap \
     libapache2-mod-php5 \
-    php5-mysql
+    php5-mysql \
+    --no-install-recommends
+
+# Install supervisord
+RUN mkdir -p /var/log/supervisor
+
+ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Install app
 RUN rm /var/www/html/index.html
@@ -38,9 +45,7 @@ EXPOSE 80
 RUN apt-get remove -y \
     git
 
-# Need to set environment variables before starting apache
-# See http://askubuntu.com/questions/452042/why-is-my-apache-not-working-after-upgrading-to-ubuntu-14-04
-CMD ["source", "/etc/apache2/envvars"]
+RUN apt-get autoremove -y
 
 # And start the web server
-CMD ["/usr/sbin/apache2", "-D",  "FOREGROUND"]
+CMD ["/usr/bin/supervisord"]
