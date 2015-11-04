@@ -2,7 +2,7 @@
 FROM ubuntu:14.04.3
 MAINTAINER Jack Warner <jackwarner@wmalumni.com> (@warnerjack)
 
-ENV APP_VERSION Watson-RC17
+ENV APP_VERSION Watson-RC18
 
 # Install dependencies
 RUN apt-get update -y
@@ -25,7 +25,6 @@ ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN rm /var/www/html/index.html
 RUN git clone https://github.com/jackwarner/LimeSurvey.git /var/www/html
 RUN cd /var/www/html;git checkout $APP_VERSION
-ADD config.php /var/www/html/application/config/
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 755 /var/www/html/tmp;chown -R www-data:www-data /var/www/html/tmp
 RUN chmod -R 755 /var/www/html/upload;chown -R www-data:www-data /var/www/html/upload
