@@ -7,7 +7,6 @@ ENV APP_VERSION Watson-RC18
 # Install dependencies
 RUN apt-get update -y
 RUN apt-get install -y \
-    supervisor \
     git \
     apache2 \
     php5 \
@@ -15,11 +14,6 @@ RUN apt-get install -y \
     php5-imap \
     libapache2-mod-php5 \
     php5-mysql
-
-# Install supervisord
-RUN mkdir -p /var/log/supervisor
-
-ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Install app
 RUN rm /var/www/html/index.html
@@ -45,5 +39,3 @@ RUN apt-get remove -y \
 
 RUN apt-get autoremove -y
 
-# And start the web server
-CMD ["/usr/bin/supervisord"]
