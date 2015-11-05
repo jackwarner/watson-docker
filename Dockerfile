@@ -28,6 +28,7 @@ RUN rm -rf /var/www/html/.git
 
 # Configure apache
 RUN a2enmod rewrite
+# RUN php5enmod imap
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
