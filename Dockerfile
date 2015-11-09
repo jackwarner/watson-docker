@@ -2,7 +2,7 @@
 FROM ubuntu:14.04.3
 MAINTAINER Jack Warner <jackwarner@wmalumni.com> (@warnerjack)
 
-ENV APP_VERSION Watson-RC18
+ENV APP_VERSION Watson-RC19
 
 # Install dependencies
 RUN apt-get update -y
@@ -11,7 +11,6 @@ RUN apt-get install -y \
     apache2 \
     php5 \
     php5-gd \
-    php5-imap \
     libapache2-mod-php5 \
     php5-mysql
 
@@ -28,7 +27,6 @@ RUN rm -rf /var/www/html/.git
 
 # Configure apache
 RUN a2enmod rewrite
-# RUN php5enmod imap
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
