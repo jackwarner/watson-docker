@@ -2,7 +2,7 @@
 FROM ubuntu:14.04.3
 MAINTAINER Jack Warner <jackwarner@wmalumni.com> (@warnerjack)
 
-ENV APP_VERSION Watson-RC19
+ENV APP_VERSION Watson-RC20
 
 # Install dependencies
 RUN apt-get update -y
