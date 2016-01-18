@@ -2,12 +2,11 @@
 FROM ubuntu:14.04.3
 MAINTAINER Jack Warner <jackwarner@wmalumni.com> (@warnerjack)
 
-ENV APP_VERSION Watson-RC20
-
 # Install dependencies
 RUN apt-get update -y
 RUN apt-get install -y \
-    git \
+    wget \
+    unzip \
     apache2 \
     php5 \
     php5-gd \
@@ -15,9 +14,10 @@ RUN apt-get install -y \
     php5-mysql
 
 # Install app
-RUN rm /var/www/html/index.html
-RUN git clone https://github.com/jackwarner/LimeSurvey.git /var/www/html
-RUN cd /var/www/html;git checkout $APP_VERSION
+RUN rm -rf /var/www/html
+RUN wget https://github.com/jackwarner/LimeSurvey/archive/Watson-RC20.zip -P /var/www/
+RUN unzip /var/www/Watson-RC20.zip -d /var/www/
+RUN mv -f /var/www/LimeSurvey-Watson-RC20 /var/www/html
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 755 /var/www/html/tmp;chown -R www-data:www-data /var/www/html/tmp
 RUN chmod -R 755 /var/www/html/upload;chown -R www-data:www-data /var/www/html/upload
@@ -34,7 +34,8 @@ ENV APACHE_LOG_DIR /var/log/apache2
 EXPOSE 80
 
 RUN apt-get remove -y \
-    git
+    unzip \
+    wget
 
 RUN apt-get autoremove -y
 
