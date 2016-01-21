@@ -1,5 +1,5 @@
 # Watson Application server
-FROM ubuntu:14.04.3
+FROM ubuntu:15.04
 MAINTAINER Jack Warner <jackwarner@wmalumni.com> (@warnerjack)
 
 # Install dependencies
@@ -15,15 +15,14 @@ RUN apt-get install -y \
 
 # Install app
 RUN rm -rf /var/www/html
-RUN wget https://github.com/jackwarner/LimeSurvey/archive/Watson-RC20.zip -P /var/www/
-RUN unzip /var/www/Watson-RC20.zip -d /var/www/
-RUN mv -f /var/www/LimeSurvey-Watson-RC20 /var/www/html
+RUN wget https://github.com/jackwarner/LimeSurvey/archive/Watson-RC21.zip -P /var/www/
+RUN unzip /var/www/Watson-RC21.zip -d /var/www/
+RUN mv -f /var/www/LimeSurvey-Watson-RC21 /var/www/html
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 755 /var/www/html/tmp;chown -R www-data:www-data /var/www/html/tmp
 RUN chmod -R 755 /var/www/html/upload;chown -R www-data:www-data /var/www/html/upload
 RUN chmod -R 755 /var/www/html/application/config;chown -R www-data:www-data /var/www/html/application/config
 RUN chmod 0444 /var/www/html/admin/*
-RUN rm -rf /var/www/html/.git
 
 # Configure apache
 RUN a2enmod rewrite
