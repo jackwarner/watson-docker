@@ -15,9 +15,9 @@ RUN apt-get install -y \
 
 # Install app
 RUN rm -rf /var/www/html
-RUN wget https://github.com/jackwarner/LimeSurvey/archive/Watson-RC21.zip -P /var/www/
-RUN unzip /var/www/Watson-RC21.zip -d /var/www/
-RUN mv -f /var/www/LimeSurvey-Watson-RC21 /var/www/html
+RUN wget https://github.com/jackwarner/LimeSurvey/archive/Watson-RC22.zip -P /var/www/
+RUN unzip /var/www/Watson-RC22.zip -d /var/www/
+RUN mv -f /var/www/LimeSurvey-Watson-RC22 /var/www/html
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 755 /var/www/html/tmp;chown -R www-data:www-data /var/www/html/tmp
 RUN chmod -R 755 /var/www/html/upload;chown -R www-data:www-data /var/www/html/upload
